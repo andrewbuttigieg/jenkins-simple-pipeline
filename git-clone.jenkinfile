@@ -1,0 +1,10 @@
+node {
+	stage 'Checkout'
+		checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '4a587ff4-106d-4698-9a04-789ecc9e37c3', url: 'https://github.com/andrewbuttigieg/akka-cluster-router.git']]])
+		
+	stage 'Build'
+
+	stage 'Archive'
+		archive '**'
+
+}
